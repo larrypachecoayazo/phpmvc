@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	
+	<script src="js/Chart.js"></script>
+	<link rel="stylesheet" href="css/Chart.css">
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+
+	<link rel="stylesheet" href="css/estilos.css">
+
+	
+
+	
+
+</head>
+<body>
+
+	<form>
+	<table border="0">
+		<tr>
+			<td>Identificación</td>
+			<td><input type="text" class="nueva-clase"></td>			
+		</tr>
+		<tr>
+			<td>Nombres</td>
+			<td><input type="text"></td>			
+		</tr>
+		<tr>
+			<td>Apellidos</td>
+			<td><input class="form-control" type="text" ></td>
+		</tr>
+		<tr>
+			<td><button class="btn btn-success" >Enviar Datos</button></td>
+			<td><button type="button" class="btn btn-danger">Cancelar</button>
+</td>
+		</tr>
+	</table>
+</form>
+
+<div class="titulos">Titulo del formulario</div>
+<div class="titulos">Datos del estudiante</div>
+
+
+
+
+	<!-- <input type="button" value="Primary">
+	<button type="button" 	>Primary</button> -->
+<div style="height: 100px; width: 800px">
+	<canvas id="myChart" width="50px" height="20px"></canvas>
+</div>
+
+
+<script>
+
+$.ajax({
+  method: "POST",
+  url: "http://localhost/api",
+}).done(function( respuesta ) {
+    	datos_covid = respuesta (obj_json) ==> array
+});
+
+
+var ctx = document.getElementById('myChart');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Ayapel', 'Buenavista', 'Cienaga de Oro', 'Cerete', 'Chima', 'Chinu'],
+        datasets: [{
+            label: '# of Votes',
+            data: ['20', '30', '45', '22', '48', '21'],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+</body>
+</html>
